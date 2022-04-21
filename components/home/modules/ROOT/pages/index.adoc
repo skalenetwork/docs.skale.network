@@ -21,7 +21,7 @@ xref:filestorage::index.adoc[[.card-title]#Filestorage# [.card-body]#pass:q[a We
 --
 [.card.card-learn]
 --
-xref:ima::index.adoc[[.card-title]#Interchain Messaging Agent# [.card-body]#pass:q[An Ethereum - SKALE bridge using threshold cryptography.]#]
+xref:ima::index.adoc[[.card-title]#Interchain Messaging Agent# [.card-body]#pass:q[An Ethereum-SKALE bridge using threshold cryptography.]#]
 --
 [.card.card-learn]
 --
