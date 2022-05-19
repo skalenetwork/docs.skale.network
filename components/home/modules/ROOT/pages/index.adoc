@@ -17,11 +17,11 @@ xref:skaled::index.adoc[[.card-title]#SKALE Chain# [.card-body]#pass:q[Enabling 
 --
 [.card.card-learn]
 --
-xref:filestorage::index.adoc[[.card-title]#Filestorage# [.card-body]#pass:q[A Web3 storage layer available on each chain.]#]
+xref:filestorage::index.adoc[[.card-title]#Filestorage# [.card-body]#pass:q[a Web3 storage layer available on each chain.]#]
 --
 [.card.card-learn]
 --
-xref:ima::index.adoc[[.card-title]#Interchain Messaging Agent# [.card-body]#pass:q[An Ethereum - SKALE bridge using threshold cryptography.]#]
+xref:ima::index.adoc[[.card-title]#Interchain Messaging Agent# [.card-body]#pass:q[An Ethereum-SKALE bridge using threshold cryptography.]#]
 --
 [.card.card-learn]
 --

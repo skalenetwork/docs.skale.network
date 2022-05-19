@@ -4,7 +4,7 @@
 
 === How does the SKALE Network work?
 
-The SKALE Network consists of a large pool of validator nodes, all running concurrently and independently, validating transactions within the SKALE Chains they oversee. These nodes coordinate with a set of smart contracts that run on the Ethereum mainnet called SKALE Manager. SKALE Manager includes SKALE Token that governs its issuance and how rewards get distributed to validators and delegators.
+The SKALE Network consists of a large pool of validator nodes, all running concurrently and independently, validating transactions within the SKALE Chains they oversee. These nodes coordinate with a set of smart contracts that run on the Ethereum mainnet called SKALE Manager. SKALE Manager includes SKALE Token(SKL) that governs its issuance and how rewards get distributed to validators and delegators.
 
 Developers request a specific size chain (small, medium, and large), chain duration (180, 365, 730 days i.e. 6, 12, 24 months), and then stake SKL tokens to complete the provisioning of the chain. These tokens get staked into SKALE Manager on the Ethereum mainnet. Each month, a set portion of tokens from this developer's stake move into a bounty pool which is then used to reward the validators and delegators within the network. An inflation event occurs each month whereby new SKALE tokens are created, which gets pushed into the bounty pool for reward to validators and delegators.
 
