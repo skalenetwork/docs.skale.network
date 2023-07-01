@@ -362,10 +362,10 @@ recipient for each secondary sale, e.g. 500 = 5%
 as uploading NFTs, configuring permissions, and more.
 
 For additional information on Deploy, please reference
-https://portal.thirdweb.com/deploy[thirdweb’s documentation].
+https://portal.thirdweb.com/deploy?utm_source=skale&utm_medium=docs&utm_campaign=chain_docs[thirdweb’s documentation].
 
 If you have any further questions or encounter any issues during the
 process, please reach out to thirdweb support at
-http://support.thirdweb.com/[support.thirdweb.com].
+http://support.thirdweb.com/?utm_source=skale&utm_medium=docs&utm_campaign=chain_docs[support.thirdweb.com].
 
 ====
