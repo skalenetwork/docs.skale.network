@@ -38,7 +38,7 @@ xref:third-party-tools/index.adoc[[.card-title]#3rd Party Tools# [.card-body]#pa
 --
 [.card.card-primary.card-wallet]
 --
-link:wallets/index.adoc[[.card-title]#Wallets# [.card-body]#pass:q[Power your UX with a variety of SKALE compatible wallets]#]
+xref:wallets/index.adoc[[.card-title]#Wallets# [.card-body]#pass:q[Power your UX with a variety of SKALE compatible wallets]#]
 --
 
 ++++
