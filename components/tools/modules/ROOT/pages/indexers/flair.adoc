@@ -1,0 +1,105 @@
+= Indexing Skale on-chain data via Flair
+
+With https://flair.dev[Flair], you can index custom data on your Skale chain in real-time and also for historical data.
+
+image::https://3876552147-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FiZDr2t6KNyGjOMOzOJ5H%2Fuploads%2FeWdGfXxPBwGccjQ4fXRh%2FHigh-level%20Dataflow-larger.svg?alt=media&token=60595fc5-7fb5-4b74-85cc-75bbdc578c35[Cookbook Search, 800, 1000]
+
+
+## Why Flair?
+
+Compared to other alternatives the main reasons are:
+
+* 🚀  Adopting **parallel and distributed processing** paradigm means high scalability and resiliency for your indexing stack. Instead of constrained sequential processing (e.g Subgraph).
+* 🧩  Focused on **primitives**, which means on the left you plug-in an RPC and on the right you output the data to any destination database.
+* 🚄  Native **real-time stream processing** for certain data workload (such as aggregations, rollups) for things like total volume per pool, or total portfolio per user wallet.
+* ☁️  **Managed** cloud services avoid DevOps and irrelevant engineering costs for dApp developers.
+* 🧑‍💻  Avoid decentralization **overhead** (consensus, network hops, etc) since we believe to enable best UX for dApps reading data must be as close to the developers as possible.
+
+## Features
+
+* ✅ Listen to **any EVM chain** with just an RPC URL.
+  ** Free managed RPC URLs for +8 popular chains already included.
+  ** Works with both websocket and https-only RPCs.
+* ✅ Track and ingest **any contract** for **any event topic.**
+  ** Auto-track new contracts deployed from factory contracts.
+* ✅ **Custom processor scripts** with JavaScript runtime (with **Typescript** support)
+  ** Make external API or Webhook calls to third-party or your backend.
+  ** Get current or historical USD value of any ERC20 token amount of any contract address on any chain.
+  ** Use any external NPM library.
+* ✅ **Stream** any stored data to your destination database (Postgres, MongoDB, MySQL, Kafka, Elasticsearch, Timescale, etc).
+
+## Getting Started
+
+1️⃣ Clone the https://github.com/flair-sdk/starter-boilerplate[starter boilerplate] template and follow the instructions
+
+```bash
+git clone https://github.com/flair-sdk/starter-boilerplate.git
+# ... follow instructions in README.md
+```
+[NOTE]
+
+Boilerplate instructions will create a **new cluster**, generate **an API Key**, and set up a manifest.yml to index your **first contract** with **sample custom processor** scripts.
+Learn more about the https://docs.flair.dev/reference/manifest.yml[structure of manifest.yml].
+
+
+2️⃣ Configure Skale RPC nodes
+
+Set a unique namespace, Skale chainId and RPC endpoint in your config. Remember that you can add up to 10 RPC endpoints for resiliency.
+
+```yaml
+{
+  "cluster": "dev",
+  "namespace": "my-awesome-skale-indexing-dev",
+  "indexers": [
+    {
+      "chainId": 1351057110,
+      "enabled": true,
+      "ingestionFilterGroup": "default",
+      "processingFilterGroup": "default",
+      "sources": [
+        # Highly-recommended to have at least 1 websocket endpoint
+        "wss://staging-v3.skalenodes.com/v1/ws/staging-fast-active-bellatrix",
+        # You can put multiple endpoints for failover
+        "https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix"
+      ]
+    }
+  ]
+}
+```
+
+3️⃣  Sync some historical data using https://docs.flair.dev/reference/backfilling[backfill command]. Remember that `enabled: true` flag in your `config` enabled your indexer to capture data in real-time already.
+
+```bash
+# backfill certain contracts or block ranges
+pnpm flair backfill --chain 1351057110 --address 
+0xb842faf994f7a2be83e4587a9fcfe8c7bd08670c -d backward --max-blocks 10000
+
+# backfill for a specific block number, if you have certain events you wanna test with
+pnpm flair backfill --chain 1351057110 -b 2041846
+
+# backfill for the recent data in the last X minute
+pnpm flair backfill --chain 1351057110 --min-timestamp="30 mins ago" -d backward
+```
+
+
+4️⃣ https://docs.flair.dev/#getting-started[Query] your custom indexed data.
+
+5️⃣ Stream the data to your https://docs.flair.dev/reference/database#your-own-database[own database].
+
+## Examples
+
+Explore real-world usage of Flair indexing primitives for various use-cases.
+
+### DeFi
+
+* https://github.com/flair-sdk/examples/tree/main/aggregate-protocol-fees-in-usd[Aggregate protocol fees in USD across multiple chains]
+* https://github.com/flair-sdk/examples/tree/main/health-factor-with-factory-tracking[Calculate "Health Factor" of positions with contract factory tracking]
+* https://github.com/flair-sdk/examples/tree/main/uniswap-v2-events-from-all-contracts-with-usd-price[Index Uniswap v2 swaps with USD price for all addresses]
+
+### NFT
+
+* https://github.com/flair-sdk/examples/tree/main/erc721-and-erc1155-nft-indexing[Index ERC721 and ERC1155 NFTs on any EVM chain with an RPC URL]
+
+## Need Help?
+
+https://docs.flair.dev/talk-to-an-engineer[Our engineers] are available to help you at any stage.
