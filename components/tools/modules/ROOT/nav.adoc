@@ -40,3 +40,4 @@
 // ** xref:wallets/torus.adoc[Torus]
 ** xref:wallets/magic-wallet.adoc[Magic]
 ** xref:wallets/wallet-connect.adoc[Wallet Connect]
+** xref:wallets/particle-network.adoc[Particle Network]
