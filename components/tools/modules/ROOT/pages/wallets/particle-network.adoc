@@ -2,7 +2,7 @@
 
 Particle Network is an intent-centric, modular access layer of web3 applications. With Particle's Smart Wallet-as-a-Service, developers can curate an unparalleled user experience through modular and customizable EOA/AA embedded wallet components. Using MPC-TSS for key management, Particle can streamline user onboarding via familiar web2 accounts - such as Google accounts, email addresses, and phone numbers.
 
-For more information and support, see <https://docs.particle.network>
+For more information and support, see <https://docs.particle.network>, <https://blog.particle.network>, and <https://particle.network>
 
 == Install the NPM Packages
 
