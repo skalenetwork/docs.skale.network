@@ -11,6 +11,7 @@ Other advantages include superior performance with multiple RPC endpoint configu
 * link:https://academy.subquery.network/[SubQuery Academy (Documentation)]
 * link:https://academy.subquery.network/quickstart/quickstart.html[Intro Quick Start Guide]
 * link:https://academy.subquery.network/quickstart/quickstart_chains/skale.html[Skale Quick Start Guide]
+* For technical questions and support reach out to us start@subquery.network
 
 # Getting Started
 
