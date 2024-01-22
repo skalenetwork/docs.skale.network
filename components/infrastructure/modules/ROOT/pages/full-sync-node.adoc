@@ -10,9 +10,9 @@
 == Node Machine Requirements
 
 * A Linux x86_64 machine
-* Ubuntu 18.04
-* 8 physical cores
-* 32GB RAM
+* Ubuntu 20.04
+* 4 physical cores
+* 16GB RAM
 * 100GB root storage
 * 2TB attached storage
 
@@ -22,7 +22,7 @@
 
 == Node Software Prerequisites
 
-* 16GB Swap
+* 8GB Swap
 * docker
 * docker-compose → 1.27.4
 * iptables-persistent, btrfs-progs, lsof, lvm2, psmisc, and apt packages
