@@ -7,14 +7,16 @@
 . Notify core team of IP/IPs range (`x.x.x.x:x.x.x.x`) and SKALE Chain for full-sync.
 . Complete Full Sync setup
 
-== Node Machine Requirements
+== Recommended Node Machine Requirements
 
 * A Linux x86_64 machine
-* Ubuntu 18.04
-* 8 physical cores
-* 32GB RAM
+* Ubuntu 20.04
+* 4 physical cores
+* 16GB RAM
 * 100GB root storage
 * 2TB attached storage
+
+Machine characteristics can be adjusted higher for your needs
 
 == Node Network Requirements
 
@@ -22,7 +24,7 @@
 
 == Node Software Prerequisites
 
-* 16GB Swap
+* 8GB Swap
 * docker
 * docker-compose → 1.27.4
 * iptables-persistent, btrfs-progs, lsof, lvm2, psmisc, and apt packages
@@ -41,7 +43,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-
 sudo apt install iptables-persistent btrfs-progs lsof lvm2 psmisc
 
 # Setup Swapfile
-sudo fallocate -l 16G /swapfile
+sudo fallocate -l 8G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
@@ -57,7 +59,7 @@ Before proceeding, notify the core team of the IP address of your full-sync node
 . Download sync-node-cli tool
 +
 ```shell
-VERSION_NUM=2.2.0-sync-node.6 && sudo -E bash -c "curl -L https://github.com/skalenetwork/node-cli/releases/download/$VERSION_NUM/skale-$VERSION_NUM-`uname -s`-`uname -m`-sync >  /usr/local/bin/skale"
+VERSION_NUM=2.2.1-sync && sudo -E bash -c "curl -L https://github.com/skalenetwork/node-cli/releases/download/$VERSION_NUM/skale-$VERSION_NUM-`uname -s`-`uname -m`-sync >  /usr/local/bin/skale"
 ```
 
 . Apply executable permissions to the downloaded binary:
@@ -75,7 +77,7 @@ skale --help
 . Prepare `.env` file:
 +
 ```
-CONTAINER_CONFIGS_STREAM="2.2.0-sync-node.0"
+CONTAINER_CONFIGS_STREAM="2.2.1-sync"
 ENDPOINT=[[By Validator], YOUR GETH/INFURA ENDPOINT]
 MANAGER_CONTRACTS_ABI_URL="https://raw.githubusercontent.com/skalenetwork/skale-network/master/releases/mainnet/skale-manager/1.9.0/skale-manager-1.9.0-mainnet-abi.json"
 IMA_CONTRACTS_ABI_URL="https://raw.githubusercontent.com/skalenetwork/skale-network/master/releases/mainnet/IMA/1.3.0/mainnet/abi.json"
