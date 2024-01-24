@@ -7,7 +7,7 @@
 . Notify core team of IP/IPs range (`x.x.x.x:x.x.x.x`) and SKALE Chain for full-sync.
 . Complete Full Sync setup
 
-== Node Machine Requirements
+== Recommended Node Machine Requirements
 
 * A Linux x86_64 machine
 * Ubuntu 20.04
@@ -15,6 +15,8 @@
 * 16GB RAM
 * 100GB root storage
 * 2TB attached storage
+
+Machine Characteristics can be adjusted higher for your needs
 
 == Node Network Requirements
 
