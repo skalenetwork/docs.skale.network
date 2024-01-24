@@ -16,7 +16,7 @@
 * 100GB root storage
 * 2TB attached storage
 
-Machine Characteristics can be adjusted higher for your needs
+Machine characteristics can be adjusted higher for your needs
 
 == Node Network Requirements
 
