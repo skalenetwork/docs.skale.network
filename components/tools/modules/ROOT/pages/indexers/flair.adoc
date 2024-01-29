@@ -2,7 +2,7 @@
 
 With https://flair.dev[Flair], you can index custom data on your Skale chain in real-time and also for historical data.
 
-image::https://3876552147-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FiZDr2t6KNyGjOMOzOJ5H%2Fuploads%2FeWdGfXxPBwGccjQ4fXRh%2FHigh-level%20Dataflow-larger.svg?alt=media&token=60595fc5-7fb5-4b74-85cc-75bbdc578c35[Cookbook Search, 800, 1000]
+image::https://3876552147-files.gitbook.io/~/files/v0/b/gitbook-x-prod.appspot.com/o/spaces%2FiZDr2t6KNyGjOMOzOJ5H%2Fuploads%2FiKtug1P3zT2ELRcZ8LAi%2Fhigh-level-diagram.png?alt=media&token=84b7b6f3-e188-4fc5-b8c8-4fa03711846d[Cookbook Search, 800, 1000]
 
 
 ## Why Flair?
@@ -44,7 +44,11 @@ Learn more about the https://docs.flair.dev/reference/manifest.yml[structure of 
 
 2️⃣ Configure Skale RPC nodes
 
-Set a unique namespace, Skale chainId and RPC endpoint in your config. Remember that you can add up to 10 RPC endpoints for resiliency.
+Set a unique namespace, Skale chainId and RPC endpoint in your config. 
+
+**Note:** Remember that you can add up to 10 RPC endpoints for resiliency.
+
+**Note:** It is recommended to use an archive node as the rpc endpoint over a traditional proxied endpoint, however, a proxy endpoint can be used if no historical data is required and a block rotation has not occured.
 
 ```yaml
 {
