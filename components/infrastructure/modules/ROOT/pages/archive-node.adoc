@@ -123,7 +123,7 @@ skale ssl status
 
 Once certs are uploaded, HTTPS/WSS endpoints should become available for your chain.
 
-=== Archive node
+=== Update archive node
 
 Update archive SKALE node on current machine
 
