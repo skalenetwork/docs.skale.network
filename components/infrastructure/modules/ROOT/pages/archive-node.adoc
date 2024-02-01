@@ -24,7 +24,7 @@ Firewall setup is a part of skale binary. Any custom configuration may break or 
 
 == Node Software Prerequisites
 
-* 16GB Swap
+* 8GB Swap
 * docker
 * docker-compose → 1.29.2
 * iptables-persistent, btrfs-progs, lsof, lvm2, psmisc, and apt packages
