@@ -10,8 +10,8 @@
 
 * A Linux x86_64 machine
 * Ubuntu 20.04
-* 8 physical cores
-* 32GB RAM
+* 4 physical cores
+* 16GB RAM
 * 100GB root storage
 * 500TB attached storage
 
