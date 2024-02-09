@@ -12,7 +12,7 @@ To get started, follow the steps below:
   * Europa for DeFi
   * Titan for AI & ML
   * Calypso for everything else
-3. Visit the sFUEL Station, and work through the prompts
+3. Visit the https://sfuelstation.com[sFUEL Station], and work through the prompts
 4. Select the button "Click for Testnet"
 5. Select "Claim sFUEL" on the same chain you selected above
 6. Begin deploying contracts with your favorites tools!
