@@ -1,40 +1,21 @@
 = Developing on SKALE
-:page-aliases: hackathon.adoc
 
-== Quick Start
+== Start Building on Testnet
 
-Already an Ethereum developer? Use all your usual tools and deployment methods (Truffle, Hardhat, Remix, Web3) and get a SKALE Chain RPC Endpoint. 
+SKALE Testnet has now been updated to v3 on Holesky. New chains are available and Chaos has been deprecated.
 
-=== Get a SKALE Endpoint
+To get started, follow the steps below:
 
-For testing, you can use the SKALE public testnet which has 15 chains. Most of these chains are dedicated to other dApps and hubs, except for the CHAOS chain (`staging-fast-active-bellatrix`) which is provided for general public testing.
-
-[cols="h,m"]
-|===
-|Chain Name: |staging-fast-active-bellatrix
-|RPC (https):| \https://staging-v3.skalenodes.com/v1/staging-fast-active-bellatrix
-|RPC (wss): | wss://staging-v3.skalenodes.com/v1/ws/staging-fast-active-bellatrix
-|Block Explorer: | \https://staging-fast-active-bellatrix.explorer.staging-v3.skalenodes.com
-|Chain ID: | 0x50877ed6
-|Chain ID (dec): | 1351057110
-|Chain Name Hash: | 0x0000050877ed6397218923b67054bfcfd054c0012d0682fe896667859b4dede9
-|sFUEL Faucet: | \https://sfuel.skale.network/staging/chaos
-|===
-
-
-[NOTE]
-====
-The public chain provided above requires sFUEL to deploy contacts and perform transactions (faucet: https://sfuel.skale.network/staging/chaos). This is unlike other SKALE chains which require both xref:skale-chain-administration::skale-chain-access-control.adoc#_whitelist[deployer access] and sFUEL to deploy contracts.
-
-➡️ sFUEL is a zero-cost gas token and is the native token for each SKALE chain. xref:sfuel-gas-token.adoc[Read more about sFUEL here].
-====
-
-To view the testnet chains, go to https://staging-v3.skalenodes.com/.
-
-== Add SKALE Chaos Testnet to MetaMask
-
-
-video::798584275[vimeo, opts=autoplay, height=450, width=800]
+1. Please visit https://testnet.portal.skale.space/chains
+2. Select your chain:
+  * Nebula for Gaming
+  * Europa for DeFi
+  * Titan for AI & ML
+  * Calypso for everything else
+3. Visit the sFUEL Station, and work through the prompts
+4. Select the button "Click for Testnet"
+5. Select "Claim sFUEL" on the same chain you selected above
+6. Begin deploying contracts with your favorites tools!
 
 == Existing dApps
 
@@ -56,8 +37,6 @@ Whether starting a new project or migrating from another EVM Chain, checkout som
 == Developer Tool Docs
 
 * https://hardhat.org/hardhat-runner/docs/getting-started[Hardhat Docs]
-* https://portal.thirdweb.com/[thirdweb Docs]
-* https://www.trufflesuite.com/docs[Truffle Suite Docs]
 * https://remix-ide.readthedocs.io/en/latest/#[Remix Docs]
 * https://docs.openzeppelin.com[OpenZeppelin Docs]
 
