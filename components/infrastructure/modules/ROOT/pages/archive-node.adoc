@@ -6,7 +6,7 @@
 . Notify core team of IP/IPs range (`x.x.x.x:x.x.x.x`) and SKALE Chain for archive.
 . Complete archive node setup.
 
-== Node Machine Requirements
+== Recommended Machine Requirements
 
 * A Linux x86_64 machine
 * Ubuntu 20.04
@@ -43,7 +43,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo apt install iptables-persistent btrfs-progs lsof lvm2 psmisc
 
 # Setup Swapfile
-sudo fallocate -l 16G /swapfile
+sudo fallocate -l 8G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
