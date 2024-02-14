@@ -6,7 +6,7 @@
 . Notify core team of IP/IPs range (`x.x.x.x:x.x.x.x`) and SKALE Chain for archive.
 . Complete archive node setup.
 
-== Node Machine Requirements
+== Recommended Machine Requirements
 
 * A Linux x86_64 machine
 * Ubuntu 20.04
@@ -43,7 +43,7 @@ sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-
 sudo apt install iptables-persistent btrfs-progs lsof lvm2 psmisc
 
 # Setup Swapfile
-sudo fallocate -l 16G /swapfile
+sudo fallocate -l 8G /swapfile
 sudo chmod 600 /swapfile
 sudo mkswap /swapfile
 sudo swapon /swapfile
@@ -79,7 +79,7 @@ chmod +x /usr/local/bin/skale
 . Test the installation
 +
 ```shell
-skale --help
+sudo skale --help
 ```
 
 . Prepare `.env` file:
@@ -89,16 +89,20 @@ CONTAINER_CONFIGS_STREAM="2.2.1-sync"
 ENDPOINT=[YOUR GETH/INFURA ENDPOINT]
 IMA_CONTRACTS_ABI_URL=https://raw.githubusercontent.com/skalenetwork/skale-network/master/releases/mainnet/IMA/1.5.0/mainnet/abi.json
 MANAGER_CONTRACTS_ABI_URL=https://raw.githubusercontent.com/skalenetwork/skale-network/master/releases/mainnet/skale-manager/1.9.3/skale-manager-1.9.3-mainnet-abi.json
-DISK_MOUNTPOINT=[Your attached storage /dev/sda or /dev/xvdd (this is an example. You just need to use your 2TB block device)]
+DISK_MOUNTPOINT=[The second disk /dev/sdb or /dev/xvdb (this is an example. You just need to use your 2TB block device)]
 DOCKER_LVMPY_STREAM="1.0.2-stable.0"
+ENFORCE_BTRFS=True/False
 ENV_TYPE="mainnet"
 SCHAIN_NAME=[SCHAIN NAME FOR YOUR ARCHIVE NODE]
 ```
 
+[WARNING]
+ENFORCE_BTRFS=True formats your attached device as btrfs even if there is another filesytem. Backup the storage before running the command.
+
 . Init archive node:
 +
 ```shell
-skale sync-node init --archive --catchup --historic [ENV_FILE_PATH]
+sudo skale sync-node init --archive --catchup --historic-state [ENV_FILE_PATH]
 ```
 
 . Wait until your archive node will be inited.
@@ -112,13 +116,13 @@ Node SSL certificates support secure communication with chain endpoints. By defa
 To upload SSL certs to the node run:
 
 ```shell
-skale ssl upload -c $PATH_TO_CERT_FILE -k $PATH_TO_KEY_FILE
+sudo skale ssl upload -c $PATH_TO_CERT_FILE -k $PATH_TO_KEY_FILE
 ```
 
 To check the status of your certs run:
 
 ```shell
-skale ssl status
+sudo skale ssl status
 ```
 
 Once certs are uploaded, HTTPS/WSS endpoints should become available for your chain.
@@ -128,7 +132,7 @@ Once certs are uploaded, HTTPS/WSS endpoints should become available for your ch
 Update archive SKALE node on current machine
 
 ```shell
-skale sync-node update [ENV_FILEPATH]
+sudo skale sync-node update [ENV_FILEPATH]
 ```
 
 Options:
@@ -140,4 +144,4 @@ Arguments:
 - `ENV_FILEPATH` - path to env file where parameters are defined
 
 [NOTE]
-You can just update a file with environment variables used during `skale sync-node init`.
+You can just update a file with environment variables used during `sudo skale sync-node init`.
