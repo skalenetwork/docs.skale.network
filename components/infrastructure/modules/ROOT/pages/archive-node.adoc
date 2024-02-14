@@ -95,9 +95,9 @@ ENFORCE_BTRFS=True/False
 ENV_TYPE="mainnet"
 SCHAIN_NAME=[SCHAIN NAME FOR YOUR ARCHIVE NODE]
 ```
-[WARNING]
-ENFORCE_BTRFS=True will format your attached device as btrfs even if another filesytem. Backup the storage before running the command.
 
+[WARNING]
+ENFORCE_BTRFS=True formats your attached device as btrfs even if there is another filesytem. Backup the storage before running the command.
 
 . Init archive node:
 +
