@@ -78,7 +78,7 @@ chmod +x /usr/local/bin/skale
 . Test the installation
 +
 ```shell
-skale --help
+sudo skale --help
 ```
 
 . Prepare `.env` file:
