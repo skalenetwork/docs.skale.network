@@ -16,6 +16,7 @@
 ** xref:indexers/covalent.adoc[Covalent API]
 ** xref:indexers/graph.adoc[The Graph]
 ** xref:indexers/subsquid.adoc[Subsquid]
+** xref:indexers/flair.adoc[Flair]
 
 * xref:libraries/index.adoc[Libraries]
 ** xref:libraries/using-WAGMI.adoc[Using WAGMI]

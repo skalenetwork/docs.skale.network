@@ -25,3 +25,9 @@ xref:graph[Learn how run The Graph for a SKALE Chain]
 Subsquid is a highly configurable hosted indexing solution that allows developers to create customizable squids that can be deployed on their Aquarium service. Subsquid currently supports both SKALE Calypso and SKALE Nebula Mainnet and Testnet chains.
 
 xref:subsquid[Grab a Subsquid endpoint and head to their docs to deploy a squid]
+
+=== Flair
+
+link:https://flair.dev[Flair] is a real-time and historical custom data indexing for any EVM chain; It offers reusable **indexing primitives** (such as fault-tolerant RPC ingestors, custom processors and aggregations, re-org aware database integrations) to make it easy to receive, transform, store and access your on-chain data.
+
+xref:indexers/flair.adoc[Learn how to index  your custom on-chain data on Skale via Flair]
