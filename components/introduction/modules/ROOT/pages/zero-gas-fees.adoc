@@ -1,9 +1,40 @@
-= How does SKALE do Zero gas fees?
+= Zero Gas Fees
 
-In traditional cloud computing, businesses or developers rent server space or virtualized instances from cloud providers like AWS, Google Cloud, or Azure. This service is paid for upfront by the business or developer, which then deploys its applications or services on this rented infrastructure. Users or clients of these applications don't pay for each interaction with the application – such as each HTTP request they make. Instead, the cost of these operations is absorbed by the business or developer, who has already paid for the computational resources and network bandwidth.
+SKALE not only boasts incredible scalability and flexibility, but also offers developers and end-users **zero gas fees**.
 
-Applying this analogy to the SKALE Network, SKALE provides a similar system but operating in the blockchain space. Developers or developer communities rent SKALE Chains using SKL tokens on the Ethereum mainnet. This is akin to renting server space in cloud computing. After setting up their SKALE Chains, these developers can deploy their dApps (decentralized applications) or other blockchain-based services.
+SKALE offers zero gas fees by utilizing a native gas token -- known as sFUEL -- that has no economic or monetary value.
+This token is available to SKALE Chain owners upon chain creation to then distribute as they see fit.
 
-As in cloud computing, where the end-users are not charged for each interaction (like an HTTP request), SKALE Network offers a similar benefit but for blockchain transactions. End-users interacting with these dApps do not have to pay gas fees (the cost associated with conducting a transaction on the Ethereum network) for their actions. These costs are already covered by the upfront payment made by the developers. Usage is metered (and DDoS attacks prevented) using chain-specific sFUEL tokens, which the developer can distribute to all users as they onboard and conduct transactions. There is no way to purchase sFUEL as it is freely distributed to users. See xref:skale-chain-fuel.adoc[more on sFUEL].
+However, as with any network it is a requirement that those providing the compute -- the validators -- have to find a model
+that makes sense for them to run the nodes and provide the compute. In most networks this happens in the form of gas fees, however,
+without gas fees an alternative option for value had to be created.
 
-In summary, SKALE Network can be seen as providing 'cloud-like' services but specifically tailored for the blockchain world, where developers rent for network bandwidth, allowing their end-users to enjoy zero-cost gas fees for their transactions, much like users of a web application don't pay for each HTTP request they make.
+This alternative value is done through SKALE Chain pricing and payments. SKALE Chain Pricing was introduced to help the network 
+have a sustainable economic model that offered the best unit economics to developers while also incentivizing validators to run the
+network.
+
+image::zero-gas-fee-model.png[Zero Gas Fee Model]
+
+== The Importance
+
+In traditional cloud computing, businesses or developers rent server space or virtualized instances from cloud providers like AWS,
+Google Cloud, or Azure. This service is paid for upfront by the business or developer, which then deploys its applications
+or services on this rented infrastructure. Users or clients of these applications don't pay for each interaction with the
+\application – such as each HTTP request they make. Instead, the cost of these operations is absorbed by the business or developer,
+who has already paid for the computational resources and network bandwidth.
+
+Applying this analogy to the SKALE Network, SKALE provides a similar system but operating in the blockchain space. Developers
+or developer communities rent SKALE Chains using SKL tokens on the Ethereum Mainnet. This is akin to renting server space in cloud
+computing. After setting up their SKALE Chains, these developers can deploy their dApps (decentralized applications) or other
+blockchain-based services.
+
+As in cloud computing, where the end-users are not charged for each interaction (like an HTTP request), SKALE Network offers a similar
+benefit but for blockchain transactions. End-users interacting with these dApps do not have to pay gas fees (the cost associated with
+conducting a transaction on the Ethereum network) for their actions. These costs are already covered by the upfront payment made by the
+developers. Usage is metered (and DDoS attacks prevented) using chain-specific sFUEL tokens, which the developer can distribute to all
+users as they onboard and conduct transactions. There is no way to purchase sFUEL as it is freely distributed to users.
+See xref:skale-chain-fuel.adoc[more on sFUEL].
+
+In summary, SKALE Network can be seen as providing 'cloud-like' services but specifically tailored for the blockchain world, where
+developers rent for network bandwidth, allowing their end-users to enjoy zero-cost gas fees for their transactions, much like users of
+a web application don't pay for each HTTP request they make.
