@@ -4,7 +4,7 @@
 
 == Protocol Overvieww
 
-A SKALE chain is a Proof-of-Stake blockchain fully compatible with ETH mainnet. It can run ETH wallets, tools and dapps.
+A SKALE chain is a Proof-of-Stake blockchain fully compatible with ETH mainnet and EVM. It runs ETH wallets, tools and dapps.
 
 As any Ethereum-compatible chain, SKALE chain includes `blockchain`, which is a chain of `transactions` ordered into `committed blocks`, and a computing machine denoted as `EVM`. 
 The set of variables stored in `EVM` is denoted as `EVM state`. 
@@ -21,7 +21,7 @@ EVM processes `committed blocks` one `transaction` at a time. For each `transact
 
 The purpose of SKALE chain is to order `transactions` into `blocks` and then process them by `EVM`.
 
-SKALE chain is composed of a fixed set of `N` network `nodes` that process user `transactions` in the following phases
+SKALE chain is composed of `N` network `nodes` that process user `transactions` according to the following phases
 
 . accept and validate user `transactions` (_submission phase_)
 . broadcast `transactions` to peer nodes (_broadcast phase_)
@@ -49,9 +49,10 @@ flowchart TD
 
 Note that in addition to normal block processing, a node can receive blocks through `block catchup` mechanism.
 
-`Block catchup` means that the `node` does not participate in `block consensus`. Instead, it simply downloads  `committed blocks` from other `nodes`, verifying `block signatures`. `block catchup` typically happens when a node is powered on after being offline. `Block catchup` can also be used by `third-party nodes` that do not participate in `core chain`, such a `archive nodes`.
+`Block catchup` means that the `node` does not participate in `block consensus`. Instead, it simply downloads  `committed blocks` from other `nodes`, verifying `block signatures`. `block catchup` typically happens when a node is powered on after being offline,
+or if the nework connection of the node is slower than 2/3 of other nodes, so they reach consensus without the node participating. `Block catchup` can also be used by `third-party nodes` that do not participate in `core chain`, such a `archive nodes`.
 
-`block consensus` and `block catchup` run in parallel. This means that every node in addition in normal `block consensus` procedure makes periodic random connections to other nodes, to attempt to download ready committed blocks.
+`block consensus` and `block catchup` run in parallel. This means that every node in addition to normal `block consensus` procedure makes periodic random connections to other nodes, to attempt to download ready committed blocks.
 
 The blockchain provides a _guarantee that every transaction is included into the chain only once_. This means, in particular, that when a `node` commits a block, the `node` will remove the `transactions` included in the `block` from the `pending transaction queue`.
 
@@ -88,7 +89,7 @@ flowchart TD
 
 SKALE is _provably secure_. This means one can prove two qualities of the blockchain
 
-* _consistency_ - for any `block number`, `committed blocks` and `EVM state` are identical on each `node`.  Note that due to network delays,
+* _consistency_ - for any `block number`, `committed blocks` and `EVM state` are identical on each `node`.  Note, that due to network delays,
 some `nodes` may at a given moment have less `committed blocks` than others. Therefore, `the consistency is eventual`.
 * _liveliness_ - the blockchain will always keep producing new `committed blocks`. 
 
@@ -107,9 +108,9 @@ Simply speaking, not more than 1/3 of nodes can be malicious. For instance, if `
 The identity of malicious nodes is not known. A malicious node will typically pretend being an honest node.
 
 A malicious node will attempt to break the consistency and liveliness of the network by sending malicious messages, or not sending 
-any messages when it supposed to send a message by a protocol.
+any messages, when it supposed to send a message by a protocol.
 
-It is assumed that `malicious nodes` do not control network routers and links. This means, in particular, that `malicious nodes` can not affect `messages` sent between `honest nodes`, such as corrupting or reordering them
+It is assumed that `malicious nodes` do not control network routers and links. This means that `malicious nodes` can not affect `messages` sent between `honest nodes`, such as corrupting or reordering them.
 
 ==== Network security assumptions
 
@@ -119,33 +120,76 @@ SKALE assumes that _the network is asynchronous and reliable with eventual deliv
 
 This means that:
 
-* `nodes` are assumed to be connected by a _reliable communications links_. 
+* `nodes` are assumed to be connected by _reliable communication links_. 
 * Links can can be arbitrarily slow, but will eventually deliver `messages`.
 
 The asynchronous model described above is _similar to the model assumed by Bitcoin and Ethereum blockchains_. It reflects *the state of modern Internet*, where temporary network splits and interruptions are normal, but always resolve eventually.
 
 Since real Internet sometimes drops messages on the way without delivering them, _the eventual delivery guarantee is achieved in practice by retransmissions_. The `sending node` will make _multiple attempts to transfer_  `message` to the `receiving node`, until the transfer is successful and is confirmed by the `receiving node`.
 
-=== Protocol phases overview
+
+=== Node priority
+
+For each `block id` each node is assigned priority. The priority is used to determine the winner. 
+
+Node priority changes in a round-robin fashion from one block to another. For the first block, the first node has the highest priority or is a `priority leader`. For the second block the second node has the highest priority and so on.
+
+In general the node priority can be expressed by the following formula
+
+latexmath:[nodePriority = N - ((nodeIndex - blockId ) mod N)]
+
+Where `nodeIndex` is the integer index of the node in the chain from 1 to N.  As ab example: for `blockId = 5` and `N = 16`, node 5 has priority 16, node 6 has priority 15 and so on, ending with node 4 having priority 1.
+
+It is easy to see from the above formular, that 
+
+latexmath:[priorityLeader = ((nodeIndex - blockId )) mod N + 1]
+
+=== Default block
+
+Sometimes (very infrequently) no node wins consensus. In addition to that a network disruption can lead to no proposals communicated.
+In such cases, block consensus can result in an empty block that no-one proposed, named `default block`.
+
+==== Full and Optimized Block Consensus
+
+For each block, nodes need to propose and agree on a block. This is referred to as `block consensus`.
+
+SKALE utilizes two types of block consensus: full consensus and optimized consensus.
+
+During full consensus, all nodes compete to propose and create a block.  The winner is determined by competition, if there are multiple potential winners the ultimate winner is selected by choosing the highest priority node. 
+
+During optimized consensus, only the winner of the previous consensus at `blockId = currentBlockId - N` is allowed to propose. This saves lots of network bandwidth.
+
+As an example, for block 18 the winner of the consensus at block 2 is allowed to propose. Essentially the purpose of the optimized consensus is to let previous winner win.
+
+
+
+=== Protocol phases 
 
 ==== Submission phase
 
-During submission phase a `user client` (browser or mobile app) signs a `transaction` using user `private wallet key` and submits it either directly to one of `core nodes` or to a `network proxy`. A `network proxy` is a node that load balances incoming transactions to `core nodes` attempting to load them evenly, and avoiding transaction submissions to non-responsive nodes. 
+During submission phase a `user client` (browser or mobile app) signs a `transaction` using user `private wallet key` and submits it either directly to one of `core nodes` or to a `network proxy` or an archive node. A `network proxy` is a node that load balances incoming transactions to `core nodes` attempting to load them evenly, and avoiding transaction submissions to non-responsive nodes. An archive node is a node that does not participate in consensus, but stores a historic copy of the state as well as can broadcast transactions to 
+core nodes.
 
 ==== Broadcast phase
 
-During the broadcast phase, a `node` that received a `transaction` from `user client` will broadcast it to other `core nodes`. 
+During the broadcast phase, a `core node` or an `archive node` that received a `transaction` from `user client` will broadcast it to all `core nodes`. 
 
 ==== Pending queue phase
 
-During the pending queue phase, a `transaction` received from `user client` or from `transaction broadcast` is validated and placed into the`pending queue`.
+A `transaction` received from `user client` or from `transaction broadcast` is validated and placed into the`pending queue`.
 During the validation, `transaction signature` and format are verified. 
 
-Note that `pending queue` has fixed memory capacity. If the `pending queue` is full, adding a new `transaction` to the `queue` will cause some `transactions` to be dropped from the `pending queue`. Ethereum-compatible blockchains, including SKALE, drop transactions with the smallest `gas price`.
+`Pending queue` has fixed memory capacity. If the `pending queue` is full, adding a new `transaction` to the `queue` will cause some `transactions` to be dropped from the `pending queue`. Ethereum-compatible blockchains, including SKALE, drop transactions habing the smallest `gas price`.
 
-==== Block proposal phase
+Pending queues on different core nodes will typically look similar but not identical due to network delays.
 
-During the block proposal phase each SKALE node will form a `block proposal`.  A `block proposal` is an ordered list of `transactions`.
+
+
+
+
+==== Block proposal phase 
+
+For each `block id`, each SKALE node will form a `block proposal`.  A `block proposal` is an ordered list of `transactions`.
 
 If all `transactions` in `pending queue` can be placed into proposal without reaching `block gas limit`, then all `transactions` will be placed into `block proposal`. Otherwise, `transactions` with higher gas price will be selected from the queue to create a `block proposal` that fits the `block gas limit`. 
 
