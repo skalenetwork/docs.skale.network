@@ -2,7 +2,7 @@
 :page-aliases: skale-consensus.adoc
 :stem: asciimath
 
-== Protocol Overview
+== Protocol Overvieww
 
 A SKALE chain is a Proof-of-Stake blockchain fully compatible with ETH mainnet. It can run ETH wallets, tools and dapps.
 
