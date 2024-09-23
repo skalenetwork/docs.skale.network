@@ -833,7 +833,7 @@ npx hardhat deploy
 ```
 
 The network, accounts, scripts, etc should all be picked up automatically. If you run into issues and cannot by pass this step, head over to the 
-link:https://discord.gg/skale[SKALE Developer Discord and Ask for Help!], otherwise, you should a contract address and transaction hash show up in the command prompt.
+link:https://discord.com/invite/gM5XBy6[SKALE Developer Discord and Ask for Help!], otherwise, you should a contract address and transaction hash show up in the command prompt.
 
 == Frontend
 

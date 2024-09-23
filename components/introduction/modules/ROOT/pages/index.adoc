@@ -124,11 +124,11 @@ If you don't have a SKALE Chain yet, you can get started by using the public SKA
 Check out the xref:develop::index.adoc#_get_a_skale_endpoint[Develop Page] to access chain information like RPC endpoint and chain id as well as learn how to attain sFuel.
 
 * link:https://skale.space/developers#grants[Apply to the Innovators Program] for a chance to receive a SKALE Mainnet chain grant.
-* Having trouble getting started? Then head over to the xref:develop::index.adoc[Develop Page] or reach out to the https://discord.gg/skale[SKALE Network developer community on Discord].
+* Having trouble getting started? Then head over to the xref:develop::index.adoc[Develop Page] or reach out to the https://discord.com/invite/gM5XBy6[SKALE Network developer community on Discord].
 
 == Engage with SKALE Network Community
 
-* *Discord* - For development and validator-focused discussions, join the #dev-talk channel in https://discord.gg/skale[SKALE's Discord server].
+* *Discord* - For development and validator-focused discussions, join the #dev-talk channel in https://discord.com/invite/gM5XBy6[SKALE's Discord server].
 * *Telegram* - For general and non-technical discussions, https://t.me/skaleofficial[join the Telegram group].
 * *Twitter* - Follow https://twitter.com/SkaleNetwork[@SkaleNetwork] on Twitter.
 * *YouTube* - For video tutorials and related content, subscribe to the SKALE YouTube channel https://www.youtube.com/skale[here].
