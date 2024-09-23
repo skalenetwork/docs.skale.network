@@ -32,7 +32,7 @@ The Europa Liqudity Hub also uses a variation of this contract.
 
 == Distribution on a Hub Chain
 
-Deploying onto a SKALE Hub? Utilize one of the pre-existing sFUEL Distribution contracts. Don't see your chain? Head over to the link:https://discord.gg/skale[SKALE Discord] and request it!
+Deploying onto a SKALE Hub? Utilize one of the pre-existing sFUEL Distribution contracts. Don't see your chain? Head over to the link:https://discord.com/invite/gM5XBy6[SKALE Discord] and request it!
 
 [width="100%"]
 === Available On-Chain Faucets

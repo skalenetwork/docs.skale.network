@@ -75,7 +75,7 @@ Other info you might find useful:
 
 == What is the process to become a validator in the SKALE Network?
 
-Please reach out to the core team in https://discord.gg/skale[SKALE's community Discord] for more information.
+Please reach out to the core team in https://discord.com/invite/gM5XBy6[SKALE's community Discord] for more information.
 
 == What type of validators is the network looking for?
 

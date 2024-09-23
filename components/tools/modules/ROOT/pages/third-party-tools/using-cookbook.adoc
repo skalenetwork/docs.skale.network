@@ -45,7 +45,7 @@ Once you have chosen your smart contract, proceed by clicking on *No-Code Deploy
 +
 * Other options such as Remix, ChainIDE, and manual deployment may require additional steps that are not listed here.
 +
-* Want to explore these options? Join the link:https://discord.gg/skale[SKALE Discord] and ask for assistance.
+* Want to explore these options? Join the link:https://discord.com/invite/gM5XBy6[SKALE Discord] and ask for assistance.
 ====
 
 image::https://www.cookbook.dev/img/screenshots/Contract-Screenshot.png[Cookbook Contract, 900, 1200]

@@ -26,6 +26,6 @@ Web3 technologies, like SKALE's protocols and chains, are initially developed by
 * Vote on https://snapshot.org/#/skale.eth[SKALE DAO proposals]. 
 * Become a xref:validators::index.adoc[SKALE Network validator].
 * Participate in governance discussions on the https://forum.skale.network[SKALE Network forum].
-* Join the https://discord.gg/skale[SKALE Community on Discord].
+* Join the https://discord.com/invite/gM5XBy6[SKALE Community on Discord].
 
 

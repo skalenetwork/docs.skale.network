@@ -2,7 +2,7 @@
 
 [NOTE]
 Before proceeding with this section, it is recommended to familiarize yourself with both xref:../proof-of-work.adoc[Proof of Work] and xref:./index.adoc[sFUEL].
-If you still have questions, head over to the link:https://discord.gg/skale[Discord]
+If you still have questions, head over to the link:https://discord.com/invite/gM5XBy6[Discord]
 
 Both Proof of Work and sFUEL enable an Externally Owned Account (EOA) -- a wallet -- to send a signed transaction to a SKALE Chain.
 

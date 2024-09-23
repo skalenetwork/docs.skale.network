@@ -1,6 +1,6 @@
 = Hello SKALE
 
-This is the official starting point of the recipes. If you are here it means you are probably brand new to either SKALE, Solidity, or both! If you fit into any of these categories, then don't be afraid to join the https://discord.gg/skale[SKALE Discord] if you run into issues. 
+This is the official starting point of the recipes. If you are here it means you are probably brand new to either SKALE, Solidity, or both! If you fit into any of these categories, then don't be afraid to join the https://discord.com/invite/gM5XBy6[SKALE Discord] if you run into issues. 
 
 [TIP]
 Already a seasoned developer? Checkout the xref:tracks.adoc[Available Tracks] or xref:favorites.adoc[Some of our Favorites]
