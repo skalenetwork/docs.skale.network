@@ -25,3 +25,9 @@ xref:graph[Learn how run The Graph for a SKALE Chain]
 Subsquid is a highly configurable hosted indexing solution that allows developers to create customizable squids that can be deployed on their Aquarium service. Subsquid currently supports both SKALE Calypso and SKALE Nebula Mainnet and Testnet chains.
 
 xref:subsquid[Grab a Subsquid endpoint and head to their docs to deploy a squid]
+
+=== SubQuery
+
+link:https://subquery.network[SubQuery] is the universal, scalable and decentralised data indexing toolkit facilitating the construction of Web3 applications of the future. A SubQuery project is a complete API to organise and query data. SubQuery presently offers support for all Skale production and testnet chains.
+
+link:https://subquery.network[Create and launch a Skale indexer using SubQuery]
